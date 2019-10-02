@@ -9,32 +9,44 @@ namespace SDM.CompulsoryAssingment1
     {
         public int NumberOfReviewsGiven(int ReviewID)
         {
-            return MVDataSource.GetMovieReviews().Where(c => c.Reviewer == ReviewID).Count(); ;
+            return MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Count(); 
         }
 
         public double AverageGradeGiven(int ReviewID)
         {
-            return -1;
+            List<MovieReview> list = MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).ToList();
+            double gradeSum = 0;
+            foreach (var item in list)
+            {
+                gradeSum += item.Grade;
+            }
+            return gradeSum / list.Count();
         }
 
         public int NumberOfTimesGradesGiven(int ReviewID, int SpecificRating)
         {
-            return -1;
+            return MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Where(mr => mr.Grade == SpecificRating).Count();
         }
 
         public int NumberOfReviewsRecieved(int MovieID)
         {
-            return -1;
+            return MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).Count();
         }
 
         public double AverageGradeRecieved(int MovieID)
         {
-            return -1;
+            List<MovieReview> list = MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).ToList();
+            double gradeSum = 0;
+            foreach (var item in list)
+            {
+                gradeSum += item.Grade;
+            }
+            return gradeSum / list.Count();
         }
 
         public int NumberOfTimesGradesRecieved(int MovieID, int SpecificRating)
         {
-            return -1;
+            return MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).Where(mr => mr.Grade == SpecificRating).Count();
         }
 
         public int GetMovieWithHighestNumberOfTopRates()
