@@ -7,14 +7,21 @@ namespace SDM.CompulsoryAssingment1
 {
     public class MovieReviewService
     {
+        private MovieReviewRepository _repo;
+
+        public MovieReviewService(MovieReviewRepository repo)
+        {
+            _repo = repo;
+        }
+
         public int NumberOfReviewsGiven(int ReviewID)
         {
-            return MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Count(); 
+            return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Count(); 
         }
 
         public double AverageGradeGiven(int ReviewID)
         {
-            List<MovieReview> list = MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).ToList();
+            List<MovieReview> list = _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).ToList();
             double gradeSum = 0;
             foreach (var item in list)
             {
@@ -25,17 +32,17 @@ namespace SDM.CompulsoryAssingment1
 
         public int NumberOfTimesGradesGiven(int ReviewID, int SpecificRating)
         {
-            return MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Where(mr => mr.Grade == SpecificRating).Count();
+            return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Where(mr => mr.Grade == SpecificRating).Count();
         }
 
         public int NumberOfReviewsRecieved(int MovieID)
         {
-            return MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).Count();
+            return _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).Count();
         }
 
         public double AverageGradeRecieved(int MovieID)
         {
-            List<MovieReview> list = MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).ToList();
+            List<MovieReview> list = _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).ToList();
             double gradeSum = 0;
             foreach (var item in list)
             {
@@ -46,12 +53,12 @@ namespace SDM.CompulsoryAssingment1
 
         public int NumberOfTimesGradesRecieved(int MovieID, int SpecificRating)
         {
-            return MVDataSource.GetMovieReviews().Where(mr => mr.Movie == MovieID).Where(mr => mr.Grade == SpecificRating).Count();
+            return _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).Where(mr => mr.Grade == SpecificRating).Count();
         }
 
         public int[] GetAllMovieWithHighestNumberOfTopRates()
         {
-            var list = MVDataSource.GetMovieReviews().Where(mr => mr.Grade == 5).GroupBy(mr => mr.Movie).OrderByDescending(g => g.Count()).AsEnumerable();
+            var list = _repo.GetMovieReviews().Where(mr => mr.Grade == 5).GroupBy(mr => mr.Movie).OrderByDescending(g => g.Count()).AsEnumerable();
             int count = list.First().Count();
             
             var temp = list.Where(g => g.Count() == count).ToList();
@@ -68,7 +75,7 @@ namespace SDM.CompulsoryAssingment1
 
         public int[] GetAllReviewerWithMostReviews()
         {
-            var list = MVDataSource.GetMovieReviews().GroupBy(mr => mr.Reviewer).OrderByDescending(g => g.Count()).AsEnumerable();
+            var list = _repo.GetMovieReviews().GroupBy(mr => mr.Reviewer).OrderByDescending(g => g.Count()).AsEnumerable();
             int count = list.First().Count();
 
             var temp = list.Where(g => g.Count() == count).ToList();
@@ -87,7 +94,7 @@ namespace SDM.CompulsoryAssingment1
         {
             int[] top = new int[NumberOfEntries];
             List<Movie> movies = new List<Movie>();
-            List<MovieReview> list = MVDataSource.GetMovieReviews().OrderBy(mr => mr.Movie).ToList();
+            List<MovieReview> list = _repo.GetMovieReviews().OrderBy(mr => mr.Movie).ToList();
             
             int prevMovieID = 0;
             double gradeSum = 0;
@@ -127,7 +134,7 @@ namespace SDM.CompulsoryAssingment1
 
         public int[] GetReviewsSorted(int ReviewerID)
         {
-            return MVDataSource.GetMovieReviews().Where(mr => mr.Reviewer == ReviewerID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
+            return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewerID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
             
         }
 

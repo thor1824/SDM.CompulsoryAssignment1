@@ -12,9 +12,6 @@ namespace SDM.CompulsoryAssingment1
         static void Main(string[] args)
         {
 
-            // deserialize JSON directly from a file
-            MovieReviewService ms = new MovieReviewService();
-            ms.GetAllReviewerWithMostReviews();
         }
     }
 }

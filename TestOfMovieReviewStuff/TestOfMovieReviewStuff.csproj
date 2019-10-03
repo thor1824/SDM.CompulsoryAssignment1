@@ -16,4 +16,17 @@
     <ProjectReference Include="..\SDM.CompulsoryAssingment1\SDM.CompulsoryAssingment1.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestJson\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestJson\Json_TestGetAllMovieWithHighestNumberOfTopRates.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetAllReviewerWithMostReviews.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

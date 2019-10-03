@@ -10,19 +10,13 @@ namespace TestOfMovieReviewService
     {
         MovieReviewService _service;
 
-        [TestInitialize()]
-        public void Initialize()
-        {
-            _service = new MovieReviewService();
-            //MVDataSource.InitData();
-
-        }
 
         [DataRow(1, 547)]
         [DataRow(2, 145)]
         [TestMethod]
         public void TestNumberOfReviewsGiven(int ReviewID, int expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int Result = _service.NumberOfReviewsGiven(ReviewID);
             Assert.AreEqual(expected, Result);
         }
@@ -33,7 +27,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestAverageGradeGiven(int ReviewID, double expected)
         {
-
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             double Result = _service.AverageGradeGiven(ReviewID);
             Assert.AreEqual(expected, Math.Round(Result, 2));
         }
@@ -43,6 +37,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestNumberOfTimesGradesGiven(int ReviewID, int SpecificRating, int expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int Result = _service.NumberOfTimesGradesGiven(ReviewID, SpecificRating);
             Assert.AreEqual(expected, Result);
         }
@@ -52,6 +47,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestNumberOfReviewsRecieved(int MovieID, int expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int Result = _service.NumberOfReviewsRecieved(MovieID);
             Assert.AreEqual(expected, Result);
         }
@@ -61,6 +57,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestAverageGradeRecieved(int MovieID, double expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             double Result = _service.AverageGradeRecieved(MovieID);
             Assert.AreEqual(expected, Math.Round(Result, 2));
         }
@@ -70,6 +67,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestNumberOfTimesGradesRecieved(int MovieID, int SpecificRating, int expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int Result = _service.NumberOfTimesGradesRecieved(MovieID, SpecificRating);
             Assert.AreEqual(expected, Result);
         }
@@ -78,7 +76,8 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestGetAllMovieWithHighestNumberOfTopRates(int[] expected)
         {
-            int[] Result = _service.GetAllMovieWithHighestNumberOfTopRates();
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestGetAllMovieWithHighestNumberOfTopRates.json"));
+            int[] Result = _service.GetAllMovieWithHighestNumberOfTopRates(); 
             for (int i = 0; i < Result.Length; i++)
             {
                 Assert.AreEqual(expected[i], Result[i]);
@@ -89,7 +88,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestGetAllReviewerWithMostReviews(int[] expected)
         {
-
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestGetAllReviewerWithMostReviews.json"));
             int[] Result = _service.GetAllReviewerWithMostReviews();
             for (int i = 0; i < Result.Length; i++)
             {
@@ -101,6 +100,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestGetTop(int NumberOfEntries, int[] expectedList)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int[] Result = _service.GetTop(NumberOfEntries);
             for (int i = 0; i < expectedList.Length; i++)
             {
@@ -112,6 +112,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestGetReviewsSorted(int ReviewerID, int[] expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int[] result = _service.GetReviewsSorted(ReviewerID);
             for (int i = 0; i < result.Length; i++)
             {
@@ -122,6 +123,7 @@ namespace TestOfMovieReviewService
         [TestMethod]
         public void TestGetReviewersSorted(int MovieID, int[] expected)
         {
+            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
             int[] result = _service.GetReviewersSorted(MovieID);
             for (int i = 0; i < result.Length; i++)
             {

@@ -26,7 +26,7 @@ namespace SDM.CompulsoryAssingment1
             }
         }
 
-        public IEnumerable<MovieReview> GetMovieReviews(string fileName)
+        public IEnumerable<MovieReview> GetMovieReviews()
         {
             if (MovieReviews == null)
             {
