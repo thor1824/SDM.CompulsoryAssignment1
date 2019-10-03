@@ -6,19 +6,27 @@ using System.Text;
 
 namespace SDM.CompulsoryAssingment1
 {
-    public class MVDataSource
-    {
-        private static IEnumerable<MovieReview> MovieReviews { get; set; }
+    public class MovieReviewRepository
 
-        public static void InitData()
+    {
+        private IEnumerable<MovieReview> MovieReviews { get; set; }
+
+        private string FilePath { get; set; }
+
+        public MovieReviewRepository(string filePath)
         {
-            using (StreamReader file = File.OpenText(@"C:/Users/thor1/Desktop/ratings.json"))
+            FilePath = filePath;
+        }
+
+        private void InitData()
+        {
+            using (StreamReader file = File.OpenText(FilePath))
             {
                 MovieReviews = JsonConvert.DeserializeObject<IEnumerable<MovieReview>>(file.ReadToEnd());
             }
         }
 
-        public static IEnumerable<MovieReview> GetMovieReviews()
+        public IEnumerable<MovieReview> GetMovieReviews(string fileName)
         {
             if (MovieReviews == null)
             {

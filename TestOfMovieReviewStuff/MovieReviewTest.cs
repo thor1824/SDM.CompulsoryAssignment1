@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SDM.CompulsoryAssingment1;
 using System;
+using System.Collections.Generic;
 
 namespace TestOfMovieReviewService
 {
@@ -73,34 +74,59 @@ namespace TestOfMovieReviewService
             Assert.AreEqual(expected, Result);
         }
 
+        [DataRow(new int[] { 7, 2570542 })]
         [TestMethod]
-        public void TestGetMovieWithHighestNumberOfTopRates(int expected)
+        public void TestGetAllMovieWithHighestNumberOfTopRates(int[] expected)
         {
-            int Result = _service.GetMovieWithHighestNumberOfTopRates();
-            Assert.AreEqual(expected, Result);
+            int[] Result = _service.GetAllMovieWithHighestNumberOfTopRates();
+            for (int i = 0; i < Result.Length; i++)
+            {
+                Assert.AreEqual(expected[i], Result[i]);
+            }
+        }
+
+        [DataRow(new int[] { 8, 1 })]
+        [TestMethod]
+        public void TestGetAllReviewerWithMostReviews(int[] expected)
+        {
+
+            int[] Result = _service.GetAllReviewerWithMostReviews();
+            for (int i = 0; i < Result.Length; i++)
+            {
+                Assert.AreEqual(expected[i], Result[i]);
+            }
+        }
+
+        [DataRow(5, new int[5] {7, 59, 168, 25, 10})]
+        [TestMethod]
+        public void TestGetTop(int NumberOfEntries, int[] expectedList)
+        {
+            int[] Result = _service.GetTop(NumberOfEntries);
+            for (int i = 0; i < expectedList.Length; i++)
+            {
+                Assert.AreEqual(expectedList[i], Result[i]);
+            }
+        }
+
+        [DataRow(1, new int[] { 2570542, 8 })]
+        [TestMethod]
+        public void TestGetReviewsSorted(int ReviewerID, int[] expected)
+        {
+            int[] result = _service.GetReviewsSorted(ReviewerID);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
         }
 
         [TestMethod]
-        public void TestGetReviewerWithMostReviews(int expected)
+        public void TestGetReviewersSorted(int MovieID, int[] expected)
         {
-
-            int Result = _service.GetMovieWithHighestNumberOfTopRates();
-            Assert.AreEqual(expected, Result);
-        }
-
-        [TestMethod]
-        public void TestGetTop(int NumberOfEntries)
-        {
-        }
-
-        [TestMethod]
-        public void TestGetReviewsSorted(int ReviewerID)
-        {
-        }
-
-        [TestMethod]
-        public void TestGetReviewersSorted(int MovieID)
-        {
+            int[] result = _service.GetReviewersSorted(MovieID);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.AreEqual(expected[i], result[i]);
+            }
         }
     }
 }
