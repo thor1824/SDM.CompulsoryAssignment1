@@ -14,11 +14,23 @@ namespace SDM.CompulsoryAssingment1
             _repo = repo;
         }
 
+        /// <summary>
+        /// Function 1:
+        /// Get the number of reviews from a given <code>ReviewID</code>.
+        /// </summary>
+        /// <param name="ReviewID"></param>
+        /// <returns></returns>
         public int NumberOfReviewsGiven(int ReviewID)
         {
             return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Count(); 
         }
 
+        /// <summary>
+        /// Function 2:
+        /// Get the average Grade that the given reviewer, derived from <code>ReviewID</code>, have given.
+        /// </summary>
+        /// <param name="ReviewID"></param>
+        /// <returns></returns>
         public double AverageGradeGiven(int ReviewID)
         {
             List<MovieReview> list = _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).ToList();
@@ -30,6 +42,13 @@ namespace SDM.CompulsoryAssingment1
             return gradeSum / list.Count();
         }
 
+        /// <summary>
+        /// Function 3:
+        /// On input <code>ReviewID</code> and <code>SpecificRating</code>, get number of times reviewer of <code>ReviewID</code> has given a movie grade of <code>SpecificRating</code> 
+        /// </summary>
+        /// <param name="ReviewID"></param>
+        /// <param name="SpecificRating"></param>
+        /// <returns></returns>
         public int NumberOfTimesGradesGiven(int ReviewID, int SpecificRating)
         {
             return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewID).Where(mr => mr.Grade == SpecificRating).Count();
@@ -140,7 +159,7 @@ namespace SDM.CompulsoryAssingment1
 
         public int[] GetReviewersSorted(int MovieID)
         {
-            return null;
+            return _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
         }
 
 
