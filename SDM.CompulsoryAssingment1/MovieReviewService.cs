@@ -136,15 +136,18 @@ namespace SDM.CompulsoryAssingment1
                 else
                 {
                     movies.Add(new Movie() { MovieID = prevMovieID, AvgGrade = gradeSum / numberOfGrades });
+                    gradeSum = list[i].Grade;
+                    numberOfGrades = 1;
                 }
                 prevMovieID = list[i].Movie;
             }
+            movies.Add(new Movie() { MovieID = prevMovieID, AvgGrade = gradeSum / numberOfGrades });
 
             movies.Sort((emp1, emp2) => emp2.AvgGrade.CompareTo(emp1.AvgGrade));
 
             for (int i = 0; i < NumberOfEntries; i++)
             {
-                Console.WriteLine(movies[i].MovieID);
+                Console.WriteLine(movies[i].MovieID + ":" + movies[i].AvgGrade);
                 top[i] = movies[i].MovieID;
             }
             return top;
@@ -153,13 +156,22 @@ namespace SDM.CompulsoryAssingment1
 
         public int[] GetReviewsSorted(int ReviewerID)
         {
-            return _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewerID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
-            
+            int[] reviewsSorted = _repo.GetMovieReviews().Where(mr => mr.Reviewer == ReviewerID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
+            for (int i = 0; i < reviewsSorted.Length; i++)
+            {
+                Console.WriteLine(reviewsSorted[i]);
+            }
+            return reviewsSorted;
         }
 
         public int[] GetReviewersSorted(int MovieID)
         {
-            return _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Movie).ToArray();
+            int[] reviewersSorted = _repo.GetMovieReviews().Where(mr => mr.Movie == MovieID).OrderByDescending(mr => mr.Grade).ThenByDescending(mr => mr.Date).Select(mr => mr.Reviewer).ToArray();
+            for (int i = 0; i < reviewersSorted.Length; i++)
+            {
+                Console.WriteLine(reviewersSorted[i]);
+            }
+            return reviewersSorted;
         }
 
 

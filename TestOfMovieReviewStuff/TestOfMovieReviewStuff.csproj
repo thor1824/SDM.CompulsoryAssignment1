@@ -17,20 +17,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TestJson\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="TestJson\Json_TestAverageGradeGiven.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="TestJson\Json_TestAverageGradeRecieved.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestJson\Json_TestGetAllMovieWithHighestNumberOfTopRates.json">
+    <None Update="TestJson\Json_TestGetAllMovieWithHighestNumberOfTopRates_one.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestJson\Json_TestGetAllReviewerWithMostReviews.json">
+    <None Update="TestJson\Json_TestGetAllMovieWithHighestNumberOfTopRates_many.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetAllReviewerWithMostReviews_many.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetAllReviewerWithMostReviews_one.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetReviewersSorted.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetReviewsSorted.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestGetTop.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="TestJson\Json_TestNumberOfReviewsGiven.json">
@@ -40,6 +51,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="TestJson\Json_TestNumberOfTimesGradesGiven.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestNumberOfTimesGradesRecieved.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

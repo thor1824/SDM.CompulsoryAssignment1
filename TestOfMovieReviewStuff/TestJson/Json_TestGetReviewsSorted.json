@@ -1,0 +1,15 @@
+[
+{ Reviewer:1, Movie:1, Grade:1, Date:'2005-09-01'},
+{ Reviewer:1, Movie:2, Grade:5, Date:'2005-09-04'},
+{ Reviewer:1, Movie:3, Grade:5, Date:'2005-09-02'},
+{ Reviewer:1, Movie:4, Grade:5, Date:'2005-09-06'},
+{ Reviewer:1, Movie:5, Grade:1, Date:'2005-09-14'},
+{ Reviewer:1, Movie:6, Grade:5, Date:'2005-09-18'},
+{ Reviewer:1, Movie:7, Grade:5, Date:'2005-09-15'},
+{ Reviewer:1, Movie:8, Grade:5, Date:'2005-09-12'},
+{ Reviewer:1, Movie:9, Grade:5, Date:'2005-09-30'},
+{ Reviewer:1, Movie:10, Grade:5, Date:'2005-09-07'},
+{ Reviewer:2, Movie:1, Grade:1, Date:'2005-09-02'},
+{ Reviewer:2, Movie:2, Grade:5, Date:'2005-09-06'},
+{ Reviewer:2, Movie:3, Grade:1, Date:'2005-09-03'},
+]
