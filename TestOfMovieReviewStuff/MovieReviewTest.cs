@@ -11,53 +11,52 @@ namespace TestOfMovieReviewService
         MovieReviewService _service;
 
 
-        [DataRow(1, 547)]
-        [DataRow(2, 145)]
+        [DataRow(1, 13)]
+        [DataRow(2, 7)]
         [TestMethod]
         public void TestNumberOfReviewsGiven(int ReviewID, int expected)
         {
-            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestNumberOfReviewsGiven.json"));
             int Result = _service.NumberOfReviewsGiven(ReviewID);
             Assert.AreEqual(expected, Result);
         }
 
-        [DataRow(1, 3.75)]
-        [DataRow(2, 3.56)]
-        [DataRow(5, 3.92)]
+        [DataRow(1, 3.5)]
+        [DataRow(2, 4.5)]
         [TestMethod]
         public void TestAverageGradeGiven(int ReviewID, double expected)
         {
-            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestAverageGradeGiven.json"));
             double Result = _service.AverageGradeGiven(ReviewID);
             Assert.AreEqual(expected, Math.Round(Result, 2));
         }
 
-        [DataRow(2, 4, 42)]
-        [DataRow(4, 5, 19)]
+        [DataRow(1, 4, 6)]
+        [DataRow(2, 5, 4)]
         [TestMethod]
         public void TestNumberOfTimesGradesGiven(int ReviewID, int SpecificRating, int expected)
         {
-            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestNumberOfTimesGradesGiven.json"));
             int Result = _service.NumberOfTimesGradesGiven(ReviewID, SpecificRating);
             Assert.AreEqual(expected, Result);
         }
 
-        [DataRow(2059652, 22)]
-        [DataRow(1759415, 15)]
+        [DataRow(1, 8)]
+        [DataRow(2, 12)]
         [TestMethod]
         public void TestNumberOfReviewsRecieved(int MovieID, int expected)
         {
-            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestNumberOfReviewsRecieved.json"));
             int Result = _service.NumberOfReviewsRecieved(MovieID);
             Assert.AreEqual(expected, Result);
         }
 
-        [DataRow(2059652, 3.77)]
-        [DataRow(1759415, 3.47)]
+        [DataRow(1, 3.4)]
+        [DataRow(2, 4.5)]
         [TestMethod]
         public void TestAverageGradeRecieved(int MovieID, double expected)
         {
-            _service = new MovieReviewService(new MovieReviewRepository("C:/Users/thor1/Desktop/ratings_test.json"));
+            _service = new MovieReviewService(new MovieReviewRepository("TestJson/Json_TestAverageGradeRecieved.json"));
             double Result = _service.AverageGradeRecieved(MovieID);
             Assert.AreEqual(expected, Math.Round(Result, 2));
         }

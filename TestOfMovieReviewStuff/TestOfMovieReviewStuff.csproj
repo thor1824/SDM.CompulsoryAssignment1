@@ -21,10 +21,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="TestJson\Json_TestAverageGradeGiven.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestAverageGradeRecieved.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TestJson\Json_TestGetAllMovieWithHighestNumberOfTopRates.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="TestJson\Json_TestGetAllReviewerWithMostReviews.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestNumberOfReviewsGiven.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestNumberOfReviewsRecieved.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestJson\Json_TestNumberOfTimesGradesGiven.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
