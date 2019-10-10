@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM.CompulsoryAssingment1", "SDM.CompulsoryAssingment1\SDM.CompulsoryAssingment1.csproj", "{32E12A71-56D9-4996-B45D-25139017CEEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDM.CompulsoryAssingment1", "SDM.CompulsoryAssingment1\SDM.CompulsoryAssingment1.csproj", "{32E12A71-56D9-4996-B45D-25139017CEEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOfMovieReviewStuff", "TestOfMovieReviewStuff\TestOfMovieReviewStuff.csproj", "{B20B0C0C-4856-48E4-BEB9-3CB522CB62C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestOfMovieReviewStuff", "TestOfMovieReviewStuff\TestOfMovieReviewStuff.csproj", "{B20B0C0C-4856-48E4-BEB9-3CB522CB62C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceTestOfMovieStuff", "PerformanceTestOfMovieStuff\PerformanceTestOfMovieStuff.csproj", "{2B1C189B-F59D-464C-98AF-6C45400E7546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B20B0C0C-4856-48E4-BEB9-3CB522CB62C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20B0C0C-4856-48E4-BEB9-3CB522CB62C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20B0C0C-4856-48E4-BEB9-3CB522CB62C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1C189B-F59D-464C-98AF-6C45400E7546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1C189B-F59D-464C-98AF-6C45400E7546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1C189B-F59D-464C-98AF-6C45400E7546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1C189B-F59D-464C-98AF-6C45400E7546}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
